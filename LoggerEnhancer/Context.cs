@@ -5,6 +5,6 @@ namespace LoggerEnhancer
     public class Context : IContext
     {
         public string ContextId { get; set; } = "None";
-        public Dictionary<string, string>? Pairs { get; set; }
+        public IReadOnlyDictionary<string, string>? Pairs { get; set; }
     }
 }
