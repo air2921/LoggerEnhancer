@@ -27,7 +27,7 @@ namespace LoggerEnhancer
             stateBuilder.AppendLine($"Original log > {state}");
 
             if (exception is not null && state is not null)
-                stateBuilder.AppendLine(formatter != null ? formatter(state, exception) : state.ToString());
+                stateBuilder.AppendLine(formatter is not null ? formatter(state, exception) : state.ToString());
 
             _logger.Log(logLevel, eventId, stateBuilder.ToString(), exception, formatter);
         }
