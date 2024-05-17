@@ -18,10 +18,10 @@ namespace LoggerEnhancer
             Exception? exception, Func<TState, Exception, string> formatter)
         {
             var stateBuilder = new StringBuilder(256);
-            stateBuilder.AppendLine($"Context Id -> {context.ContextId}");
+            stateBuilder.AppendLine($"Context Id --> {context.ContextId}");
 
             if (context.IsDateLog)
-                stateBuilder.AppendLine($"Logging time -> {DateTime.UtcNow}");
+                stateBuilder.AppendLine($"Logging time --> {DateTime.UtcNow}");
 
             if (context.Pairs is not null && context.Pairs.Count > 0)
             {
@@ -29,12 +29,12 @@ namespace LoggerEnhancer
                 {
                     foreach (var pair in context.Pairs)
                         if (!context.KeyIgnore.Contains(pair.Key))
-                            stateBuilder.AppendLine($"{pair.Key} -> {pair.Value}");
+                            stateBuilder.AppendLine($"{pair.Key} --> {pair.Value}");
                 }
                 else
                 {
                     foreach (var pair in context.Pairs)
-                        stateBuilder.AppendLine($"{pair.Key} -> {pair.Value}");
+                        stateBuilder.AppendLine($"{pair.Key} --> {pair.Value}");
                 }
             }
 
