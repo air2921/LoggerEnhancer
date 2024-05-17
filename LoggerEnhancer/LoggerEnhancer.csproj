@@ -11,4 +11,17 @@
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
   </ItemGroup>
 
+	<PropertyGroup>
+	  <PackageId>LoggerEnhancer.Log</PackageId>
+	  <Version>1.0.0</Version>
+	  <Authors>air2921</Authors>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	  <RepositoryUrl>https://github.com/air2921/LoggerEnhancer</RepositoryUrl>
+	  <PackageProjectUrl>https://github.com/air2921/LoggerEnhancer</PackageProjectUrl>
+		<PackageTags>logger, log, asp.net, asp.net core</PackageTags>
+		<Description>
+			Implementation of the ILogger interface for a convenient addition to basic logging
+		</Description>
+	</PropertyGroup>
+
 </Project>
