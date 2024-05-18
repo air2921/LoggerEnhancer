@@ -18,7 +18,7 @@
 	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	  <RepositoryUrl>https://github.com/air2921/LoggerEnhancer</RepositoryUrl>
 	  <PackageProjectUrl>https://github.com/air2921/LoggerEnhancer</PackageProjectUrl>
-		<PackageTags>logger, log, asp.net, asp.net core</PackageTags>
+		<PackageTags>logger, log, asp.net</PackageTags>
 		<Description>
 			Implementation of the ILogger interface for a convenient addition to basic logging
 		</Description>
