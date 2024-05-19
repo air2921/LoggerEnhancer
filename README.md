@@ -97,3 +97,24 @@ warn: webapi.Controllers.LoggerController[0]
       <uID>2921</uID>
       <Original log>Here is your any log message</Original log>
 ```
+
+If you need to exclude contextual information from a specific log, you can use the `ILogger Enhancer<T>` interface to pass the parameter:
+
+```csharp
+public class LoggerController(ILoggerEnhancer<LoggerController> logger) : ControllerBase
+{
+    [HttpGet]
+    public IActionResult TestLog()
+    {
+        logger.LogWarning("Here is your any log message", contextIgnore: true); // Using LogWarning because of LogInformation is ignored
+        return StatusCode(200, new { message = "OK" });
+    }
+}
+```
+
+Example log entry if context ignored:
+
+```
+warn: webapi.Controllers.LoggerController[0]
+      Here is your any log message
+```
