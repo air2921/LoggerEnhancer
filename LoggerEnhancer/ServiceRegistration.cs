@@ -10,6 +10,7 @@ namespace LoggerEnhancer
         {
             services.AddSingleton<IContext, Context>();
             services.AddSingleton(typeof(ILogger<>), typeof(Enhancer<>));
+            services.AddSingleton(typeof(ILoggerEnhancer<>), typeof(Enhancer<>));
         }
     }
 }

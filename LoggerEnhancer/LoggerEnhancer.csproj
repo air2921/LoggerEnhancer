@@ -13,12 +13,12 @@
 
 	<PropertyGroup>
 	  <PackageId>LoggerEnhancer.Log</PackageId>
-	  <Version>1.0.1</Version>
+	  <Version>1.1.0</Version>
 	  <Authors>air2921</Authors>
 	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	  <RepositoryUrl>https://github.com/air2921/LoggerEnhancer</RepositoryUrl>
 	  <PackageProjectUrl>https://github.com/air2921/LoggerEnhancer</PackageProjectUrl>
-		<PackageTags>logger, log, asp.net, asp.net core</PackageTags>
+		<PackageTags>logger, log, asp.net</PackageTags>
 		<Description>
 			Implementation of the ILogger interface for a convenient addition to basic logging
 		</Description>
