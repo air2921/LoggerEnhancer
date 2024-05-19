@@ -1,8 +1,4 @@
-<div align="center">
-
 # LoggerEnhancer
-
-</div>
 
 *LoggerEnhancer is an implementation standard `ILogger<T>` interface to enhance basic logging from `ASP.NET Core`.*
 
