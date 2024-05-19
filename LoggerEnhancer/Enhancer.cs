@@ -10,7 +10,7 @@ namespace LoggerEnhancer
             throw new ArgumentNullException(nameof(loggerFactory), "Logger cannot be null");
 
         protected void LogInternal<TState>(LogLevel logLevel, EventId eventId, TState state,
-            Exception? exception, Func<TState, Exception, string> formatter, bool contextIgnore)
+            Exception? exception, Func<TState, Exception?, string> formatter, bool contextIgnore)
         {
             if (context.IgnoreLevels is not null && context.IgnoreLevels.Contains(logLevel))
                 return;
@@ -58,34 +58,34 @@ namespace LoggerEnhancer
         public bool IsEnabled(LogLevel logLevel) => _logger.IsEnabled(logLevel);
 
         public virtual void Log<TState>(LogLevel logLevel, EventId eventId, TState state,
-            Exception? exception, Func<TState, Exception, string> formatter)
+            Exception? exception, Func<TState, Exception?, string> formatter)
         {
             LogInternal(logLevel, eventId, state, exception, formatter, false);
         }
 
         public void LogDebug<TState>(TState state, bool contextIgnore = false)
         {
-            LogInternal(LogLevel.Debug, new EventId(), state, null, (s, e) => s.ToString(), contextIgnore);
+            LogInternal(LogLevel.Debug, new EventId(), state, null, (s, e) => state?.ToString() ?? "null", contextIgnore);
         }
 
         public void LogInformation<TState>(TState state, bool contextIgnore = false)
         {
-            LogInternal(LogLevel.Information, new EventId(), state, null, (s, e) => s.ToString(), contextIgnore);
+            LogInternal(LogLevel.Information, new EventId(), state, null, (s, e) => state?.ToString() ?? "null", contextIgnore);
         }
 
         public void LogWarning<TState>(TState state, bool contextIgnore = false)
         {
-            LogInternal(LogLevel.Warning, new EventId(), state, null, (s, e) => s.ToString(), contextIgnore);
+            LogInternal(LogLevel.Warning, new EventId(), state, null, (s, e) => state?.ToString() ?? "null", contextIgnore);
         }
 
         public void LogError<TState>(TState state, Exception? exception = null, bool contextIgnore = false)
         {
-            LogInternal(LogLevel.Error, new EventId(), state, exception, (s, e) => s.ToString(), contextIgnore);
+            LogInternal(LogLevel.Error, new EventId(), state, exception, (s, e) => state?.ToString() ?? "null", contextIgnore);
         }
 
         public void LogCritical<TState>(TState state, bool contextIgnore = false)
         {
-            LogInternal(LogLevel.Critical, new EventId(), state, null, (s, e) => s.ToString(), contextIgnore);
+            LogInternal(LogLevel.Critical, new EventId(), state, null, (s, e) => state?.ToString() ?? "null", contextIgnore);
         }
     }
 }
