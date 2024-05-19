@@ -4,7 +4,7 @@
 
 </div>
 
-*LoggerEnhancer is an implementation standard `ILogger<T>` interface to enhance basic logging from `ASP.NET Core.`.*
+*LoggerEnhancer is an implementation standard `ILogger<T>` interface to enhance basic logging from `ASP.NET Core`.*
 
 *LoggerEnhancer allows you to add any additional information to each log.*
 
