@@ -19,13 +19,13 @@ jobs:
         dotnet-version: 8.*
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore LoggerEnhancer/LoggerEnhancer.csproj
 
     - name: Build the project
       run: dotnet build --configuration Release --no-restore
 
     - name: Pack the project
-      run: dotnet pack --configuration Release --no-build --output ./nupkg
+      run: dotnet pack LoggerEnhancer/LoggerEnhancer.csproj --configuration Release --no-build --output ./nupkg
 
     - name: Publish NuGet package
       env:
