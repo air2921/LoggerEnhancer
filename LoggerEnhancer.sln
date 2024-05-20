@@ -5,7 +5,11 @@ VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerEnhancer", "LoggerEnhancer\LoggerEnhancer.csproj", "{C4F334BB-0B8E-4791-8FD0-7189222D99E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "tests\tests.csproj", "{1BF45198-5036-42C1-9CF6-6D3B20D5FD6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tests", "tests\tests.csproj", "{1BF45198-5036-42C1-9CF6-6D3B20D5FD6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sample", "sample\sample.csproj", "{8D9EAE72-D247-495E-9742-F9D919DA8AC5}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0AF7E65F-E3D3-443D-AA7C-CBFF41DBC05B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{1BF45198-5036-42C1-9CF6-6D3B20D5FD6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BF45198-5036-42C1-9CF6-6D3B20D5FD6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BF45198-5036-42C1-9CF6-6D3B20D5FD6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D9EAE72-D247-495E-9742-F9D919DA8AC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D9EAE72-D247-495E-9742-F9D919DA8AC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D9EAE72-D247-495E-9742-F9D919DA8AC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D9EAE72-D247-495E-9742-F9D919DA8AC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AF7E65F-E3D3-443D-AA7C-CBFF41DBC05B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AF7E65F-E3D3-443D-AA7C-CBFF41DBC05B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AF7E65F-E3D3-443D-AA7C-CBFF41DBC05B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AF7E65F-E3D3-443D-AA7C-CBFF41DBC05B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
