@@ -8,7 +8,7 @@ namespace LoggerEnhancer
         public string ContextId { get; set; } = "None";
         public bool IsDateLog { get; set; }
         public IReadOnlyDictionary<string, string>? Pairs { get; set; }
-        public IReadOnlySet<LogLevel>? IgnoreLevels { get; set; }
-        public IReadOnlySet<string>? KeyIgnore { get; set; }
+        public HashSet<LogLevel>? IgnoreLevels { get; set; }
+        public HashSet<string>? KeyIgnore { get; set; }
     }
 }
