@@ -94,7 +94,7 @@ warn: webapi.Controllers.LoggerController[0]
       <Original log>Here is your any log message</Original log>
 ```
 
-If you need to exclude contextual information from a specific log, you can use the `ILogger Enhancer<T>` interface to pass the parameter:
+If you need to exclude contextual information from a specific log, you can use the `ILoggerEnhancer<T>` interface to pass the parameter:
 
 ```csharp
 public class LoggerController(ILoggerEnhancer<LoggerController> logger) : ControllerBase
