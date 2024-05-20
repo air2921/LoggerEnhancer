@@ -1,4 +1,5 @@
 ﻿using LoggerEnhancer.Abstractions;
+using LoggerEnhancer.Attributes;
 using Microsoft.Extensions.Logging;
 using System.Text;
 
@@ -9,21 +10,7 @@ namespace LoggerEnhancer
         private readonly ILogger _logger = loggerFactory.CreateLogger(typeof(T).FullName ?? typeof(T).Name) ??
             throw new ArgumentNullException(nameof(loggerFactory), "Logger cannot be null");
 
-        protected void LogInternal<TState>(LogLevel logLevel, EventId eventId, TState state,
-            Exception? exception, Func<TState, Exception?, string> formatter, bool contextIgnore)
-        {
-            if (context.IgnoreLevels is not null && context.IgnoreLevels.Contains(logLevel))
-                return;
-
-            if (contextIgnore)
-            {
-                _logger.Log(logLevel, eventId, state, exception, formatter);
-                return;
-            }
-
-            var log = DefaultContextLog(state, exception, formatter);
-            _logger.Log(logLevel, eventId, log, exception, formatter);
-        }
+        private bool HasAttribute() => typeof(T).IsDefined(typeof(ContextIgnoreAttribute), inherit: true);
 
         private string DefaultContextLog<TState>(TState state, Exception? exception,
             Func<TState, Exception, string> formatter)
@@ -50,6 +37,22 @@ namespace LoggerEnhancer
                 stateBuilder.AppendLine(formatter is not null ? formatter(state, exception) : state.ToString());
 
             return stateBuilder.ToString();
+        }
+
+        protected void LogInternal<TState>(LogLevel logLevel, EventId eventId, TState state,
+            Exception? exception, Func<TState, Exception?, string> formatter, bool contextIgnore)
+        {
+            if (context.IgnoreLevels is not null && context.IgnoreLevels.Contains(logLevel))
+                return;
+            
+            if (contextIgnore || HasAttribute())
+            {
+                _logger.Log(logLevel, eventId, state, exception, formatter);
+                return;
+            }
+
+            var log = DefaultContextLog(state, exception, formatter);
+            _logger.Log(logLevel, eventId, log, exception, formatter);
         }
 
         public IDisposable BeginScope<TState>(TState state) where TState : notnull => _logger.BeginScope(state) ??
